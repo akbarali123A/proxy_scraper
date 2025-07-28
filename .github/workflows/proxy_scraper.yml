@@ -1,18 +1,22 @@
-
 name: Auto Proxy Scraper
 
 on:
   schedule:
-    - cron: '0 * * * *'  # Runs every hour
-  workflow_dispatch:     # Manual trigger
+    - cron: '0 * * * *'
+  workflow_dispatch:
 
 jobs:
   scrape-proxies:
     runs-on: ubuntu-latest
     timeout-minutes: 30
     
+    permissions:
+      contents: write  # This is crucial
+    
     steps:
     - uses: actions/checkout@v4
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}  # Add this line
     
     - name: Set up Python
       uses: actions/setup-python@v4
@@ -30,5 +34,5 @@ jobs:
         git config --global user.name "GitHub Actions"
         git config --global user.email "actions@github.com"
         git add *.txt
-        git commit -m "Auto-update proxies [$(date +'%Y-%m-%d %H:%M')]" || echo "No changes to commit"
+        git commit -m "Auto-update proxies [$(date +'%Y-%m-%d %H:%M')]"
         git push
