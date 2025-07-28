@@ -8,7 +8,7 @@ on:
 jobs:
   scrape-proxies:
     runs-on: ubuntu-latest
-    timeout-minutes: 60
+    timeout-minutes: 45
     
     permissions:
       contents: write
@@ -26,7 +26,7 @@ jobs:
     - name: Install dependencies
       run: pip install aiohttp
     
-    - name: Run proxy scraper
+    - name: Run advanced proxy scraper
       run: python proxy_scraper.py
     
     - name: Commit and push results
