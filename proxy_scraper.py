@@ -7,12 +7,9 @@ from collections import defaultdict
 
 SOURCES = [
     
-  // APIs
   "https://api.proxyscrape.com/v2/?request=displayproxies&protocol=http,socks4,socks5&timeout=10000&country=all&anonymity=all",
   "https://api.getproxylist.com/proxy?anonymity[]=transparent&anonymity[]=anonymous&anonymity[]=elite",
   "https://proxylist.geonode.com/api/proxy-list?limit=500&page=1&sort_by=lastChecked&sort_type=desc",
-
-  // GitHub Raw & CDN Lists
   "https://raw.githubusercontent.com/TheSpeedX/SOCKS-List/master/http.txt",
   "https://raw.githubusercontent.com/TheSpeedX/SOCKS-List/master/socks4.txt",
   "https://raw.githubusercontent.com/TheSpeedX/SOCKS-List/master/socks5.txt",
